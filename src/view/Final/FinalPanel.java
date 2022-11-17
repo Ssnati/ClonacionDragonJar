@@ -5,6 +5,7 @@ import java.awt.*;
 
 public class FinalPanel extends JPanel {
     private BackPanel backPanel;
+
     public FinalPanel() {
         setLayout(new GridBagLayout());
         backPanel = new BackPanel();

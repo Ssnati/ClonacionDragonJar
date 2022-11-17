@@ -11,7 +11,7 @@ public class InternalPanel extends JPanel {
         setLayout(new GridBagLayout());
 
         ImageIcon imageIcon = new ImageIcon(source);
-        icon = new JButton(new ImageIcon(imageIcon.getImage().getScaledInstance(50,50, Image.SCALE_SMOOTH)));
+        icon = new JButton(new ImageIcon(imageIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH)));
 
         title = new JLabel("Titulo");
         description = new JLabel("Descripcion");
