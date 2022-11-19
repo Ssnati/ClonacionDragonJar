@@ -20,12 +20,23 @@ public class MainPanel extends JPanel {
 
     public MainPanel(ActionListener listener, MouseListener mouseListener) {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
         header = new Header();
         flowPanel = new FlowPanel("sources/images/Flow1.jpg");
         infoPanel = new InfoPanel();
         finalPanel = new FinalPanel();
+        setPanelFeatures();
+        setListeners(listener, mouseListener);
+        addPanels();
+    }
 
+    private void addPanels() {
+        add(header);
+        add(flowPanel);
+        add(infoPanel);
+        add(finalPanel);
+    }
+
+    private void setPanelFeatures() {
         header.setPreferredSize(new Dimension(1388, 80));
         infoPanel.setPreferredSize(new Dimension(1388, 340));
         finalPanel.setPreferredSize(new Dimension(1388, 340));
@@ -33,17 +44,10 @@ public class MainPanel extends JPanel {
         finalPanel.setOpaque(false);
         infoPanel.setBackground(new Color(25, 25, 25));
         header.setBackground(new Color(254, 254, 254));
-
-        setListeners(listener, mouseListener);
-
-        add(header);
-        add(flowPanel);
-        add(infoPanel);
-        add(finalPanel);
     }
 
     private void setListeners(ActionListener listener, MouseListener mouseListener) {
-        header.setListeners(listener, mouseListener);
+        header.setListeners(mouseListener);
         flowPanel.setListeners(listener, mouseListener);
         flowPanel.addMouseListener(mouseListener);
         infoPanel.setListeners(mouseListener);
@@ -60,36 +64,14 @@ public class MainPanel extends JPanel {
         infoPanel.expandButtonFooter();
     }
 
-    public void setDefaultFooterPanel() {
-        infoPanel.contractButtonFooter();
-    }
 
     public Header getHeader() {
         return header;
     }
 
-    public void setHeader(Header header) {
-        this.header = header;
-    }
 
     public FlowPanel getFlowPanel() {
         return flowPanel;
-    }
-
-    public void setFlowPanel(FlowPanel flowPanel) {
-        this.flowPanel = flowPanel;
-    }
-
-    public void setInfoPanel(InfoPanel infoPanel) {
-        this.infoPanel = infoPanel;
-    }
-
-    public FinalPanel getFinalPanel() {
-        return finalPanel;
-    }
-
-    public void setFinalPanel(FinalPanel finalPanel) {
-        this.finalPanel = finalPanel;
     }
 
     public void expandCombo(int index) {
@@ -128,4 +110,7 @@ public class MainPanel extends JPanel {
     }
 
 
+    public void collapseAllCombo() {
+        flowPanel.collapseAllCombo();
+    }
 }

@@ -9,41 +9,7 @@ public class FlowPanel extends JPanel {
     private JButton back, next;
     private Image image;
     private MidPanel midPanel;
-
     private int index;
-
-
-    public JButton getBack() {
-        return back;
-    }
-
-    public void setBack(JButton back) {
-        this.back = back;
-    }
-
-    public JButton getNext() {
-        return next;
-    }
-
-    public void setNext(JButton next) {
-        this.next = next;
-    }
-
-    public Image getImage() {
-        return image;
-    }
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
-    public MidPanel getMidPanel() {
-        return midPanel;
-    }
-
-    public void setMidPanel(JPanel midPanel) {
-        this.midPanel = (MidPanel) midPanel;
-    }
 
     public FlowPanel(String source) {
         this.setSize(1700, 800);
@@ -93,14 +59,6 @@ public class FlowPanel extends JPanel {
         next.addMouseListener(mouseListener);
     }
 
-    public int getIndex() {
-        return index;
-    }
-
-    public void setIndex(int index) {
-        this.index = index;
-    }
-
     public void changeFlowPanel(int indexCase) {
         int operation = index + indexCase;
         if (operation == 0) operation = 3;
@@ -124,5 +82,9 @@ public class FlowPanel extends JPanel {
 
     public void expandCombo(int index) {
         midPanel.expandCombo(index);
+    }
+
+    public void collapseAllCombo() {
+        midPanel.collapseAllCombo();
     }
 }

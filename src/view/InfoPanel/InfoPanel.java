@@ -5,10 +5,6 @@ import java.awt.*;
 import java.awt.event.MouseListener;
 
 public class InfoPanel extends JPanel {
-    public void setFooterPanel(FooterPanel footerPanel) {
-        this.footerPanel = footerPanel;
-    }
-
     private FooterPanel footerPanel;
 
     public InfoPanel() {

@@ -22,25 +22,6 @@ public class Presenter implements ActionListener, MouseListener {
         if ("back".equals(e.getActionCommand())) view.changeBackFlowPanel();
     }
 
-    public static void main(String[] args) {
-        new Presenter();
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
     @Override
     public void mouseEntered(MouseEvent e) {
         //print the mouse coordinates
@@ -59,9 +40,13 @@ public class Presenter implements ActionListener, MouseListener {
             }
         }
         if (e.getSource() instanceof JLabel) ((JLabel) e.getSource()).setCursor(new Cursor(Cursor.HAND_CURSOR));
-        if (e.getSource().equals(view.isFlowPanel())) view.setMidButtonsVisible();
-        if (e.getSource().equals(view.getInfoPanel())) view.setMidButtonsInvisible();
+        if (e.getSource().equals(view.isFlowPanel())) {
+            view.collapseAllCombo();
+            view.setMidButtonsVisible();
+        }
+        if (e.getSource().equals(view.getInfoPanel())||e.getSource().equals(view.getHeader())) view.setMidButtonsInvisible();
     }
+
     @Override
     public void mouseExited(MouseEvent e) {
         {
@@ -75,5 +60,23 @@ public class Presenter implements ActionListener, MouseListener {
             if (e.getSource() instanceof JLabel) ((JLabel) e.getSource()).setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             if (e.getSource().equals(view.isHeader())) view.setMidButtonsInvisible();
         }
+    }
+    public static void main(String[] args) {
+        new Presenter();
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
     }
 }

@@ -2,13 +2,9 @@ package view.Middle;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MidPanel extends JPanel {
-    private Color foregroundColor = new Color(0, 0, 0, 128);
-    private Color backgroundColor = new Color(255, 255, 255);
-    private Font font = new Font("SansSerif", Font.PLAIN, 14);
+    private final Font font = new Font("SansSerif", Font.PLAIN, 14);
     private JComboBox<String> combo1, combo2, combo3;
 
     public MidPanel() {
@@ -18,35 +14,46 @@ public class MidPanel extends JPanel {
 
     private void initializeCombo() {
         combo1 = new JComboBox<>();
-        combo1.addItem("Seguridad Informática \nOfensiva");
-        comboFeatures(combo1);
-        combo1.setBounds(736, -29, 252, 25);
-        int distance = 799-730;
-        System.out.println("Diferencia" + distance);
-        add(combo1);
-
-
         combo2 = new JComboBox<>(new String[]{"Burp Bounty", "Epic Bounties", "Plataforma de \nEducación"});
-        comboFeatures(combo2);
-        combo2.setBounds(855, -29, 252, 25);
-        add(combo2);
-
         combo3 = new JComboBox<>(new String[]{"Blog de Seguridad \nInformática", "Conferencia de \nSeguridad Informática", "Foros de la Comunidad", "Contenido en Video", "Herramientas \nDragonJAR", "Legal"});
+        addCombo1();
+        addCombo2();
+        addCombo3();
+    }
+
+    private void addCombo3() {
         comboFeatures(combo3);
         combo3.setBounds(970, -29, 252, 25);
         add(combo3);
     }
 
+    private void addCombo2() {
+        comboFeatures(combo2);
+        combo2.setBounds(855, -29, 252, 25);
+        add(combo2);
+    }
+
+    private void addCombo1() {
+        combo1.addItem("Seguridad Informática \nOfensiva");
+        comboFeatures(combo1);
+        combo1.setBounds(736, -29, 252, 25);
+        add(combo1);
+    }
+
     private void comboFeatures(JComboBox<String> combo) {
         combo.setBackground(Color.WHITE);
         combo.setBorder(BorderFactory.createLineBorder(Color.white));
-        combo.setForeground(foregroundColor);
+        combo.setForeground(new Color(0, 0, 0, 128));
         combo.setFont(font);
         combo.setUI(new PersonalizedCombo());
         combo.setFocusable(false);
         ((JLabel) combo.getRenderer()).setHorizontalAlignment(SwingConstants.LEFT);
         combo.setEditable(false);
         combo.setSelectedIndex(-1);
+        setRender(combo);
+    }
+
+    private void setRender(JComboBox<String> combo) {
         combo.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
@@ -77,4 +84,9 @@ public class MidPanel extends JPanel {
         }
     }
 
+    public void collapseAllCombo() {
+        combo1.hidePopup();
+        combo2.hidePopup();
+        combo3.hidePopup();
+    }
 }

@@ -13,7 +13,6 @@ public class PersonalizedCombo extends BasicComboBoxUI {
         arrowButton.setBorder(BorderFactory.createEmptyBorder());
     }
 
-
     @Override
     protected JButton createArrowButton() {
         return new BasicArrowButton(BasicArrowButton.SOUTH, Color.WHITE, Color.WHITE, Color.WHITE, Color.WHITE);

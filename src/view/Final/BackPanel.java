@@ -7,22 +7,6 @@ import java.awt.event.MouseListener;
 public class BackPanel extends JPanel {
     private InternalPanel internalPanelLeft, internalPanelRight;
 
-    public InternalPanel getInternalPanelLeft() {
-        return internalPanelLeft;
-    }
-
-    public void setInternalPanelLeft(InternalPanel internalPanelLeft) {
-        this.internalPanelLeft = internalPanelLeft;
-    }
-
-    public InternalPanel getInternalPanelRight() {
-        return internalPanelRight;
-    }
-
-    public void setInternalPanelRight(InternalPanel internalPanelRight) {
-        this.internalPanelRight = internalPanelRight;
-    }
-
     public BackPanel() {
         setLayout(new GridBagLayout());
         internalPanelLeft = new InternalPanel("sources/images/calendar.png");

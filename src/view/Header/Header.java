@@ -1,15 +1,11 @@
 package view.Header;
 
-import view.Middle.PersonalizedCombo;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
 public class Header extends JPanel {
     private final Color foregroundColor = new Color(0, 0, 0, 128);
-    private final Color backgroundColor = new Color(255, 255, 255);
     private final Font font = new Font("SansSerif", Font.PLAIN, 14);
     private JLabel icon, label1, label2, label3, search;
     private JButton list1, list2, list3;
@@ -25,29 +21,31 @@ public class Header extends JPanel {
         ImageIcon img = new ImageIcon("sources/images/Logo.png");
         icon = new JLabel(new ImageIcon(img.getImage().getScaledInstance(250, 50, Image.SCALE_AREA_AVERAGING)));
 
+        addButtons();
+        addLabels();
+
+        ImageIcon magnifyingGlass = new ImageIcon("sources/images/magnifyingGlass.png");
+        search = new JLabel(new ImageIcon(magnifyingGlass.getImage().getScaledInstance(25, 25, Image.SCALE_AREA_AVERAGING)));
+    }
+
+    private void addButtons() {
         list1 = new JButton("Formación \u25BC");
         buttonFeatures(list1);
 
         list2 = new JButton("Productos \u25BC");
         buttonFeatures(list2);
 
-
         list3 = new JButton("Comunidad \u25BC");
         buttonFeatures(list3);
+    }
 
-
+    private void addLabels() {
         label1 = new JLabel("Nosotros");
-        label1.setForeground(foregroundColor);
-        label1.setFont(font);
         label2 = new JLabel("Servicios");
-        label2.setForeground(foregroundColor);
-        label2.setFont(font);
         label3 = new JLabel("Contactarnos");
-        label3.setForeground(foregroundColor);
-        label3.setFont(font);
-
-        ImageIcon loupe = new ImageIcon("sources/images/loupe.png");
-        search = new JLabel(new ImageIcon(loupe.getImage().getScaledInstance(25, 25, Image.SCALE_AREA_AVERAGING)));
+        setLabelFeatures(label1);
+        setLabelFeatures(label2);
+        setLabelFeatures(label3);
     }
 
     private void buttonFeatures(JButton list) {
@@ -59,77 +57,79 @@ public class Header extends JPanel {
         list.setMargin(new Insets(0, 0, 0, 0));
     }
 
-    private void comboFeatures(JComboBox<String> combo) {
-        combo.setPreferredSize(new Dimension(100, 25));
-        combo.setBackground(Color.WHITE);
-        combo.setBorder(BorderFactory.createLineBorder(Color.white));
-        combo.setForeground(foregroundColor);
-        combo.setFont(font);
-        combo.setUI(new PersonalizedCombo());
-        combo.setFocusable(false);
-        ((JLabel) combo.getRenderer()).setHorizontalAlignment(SwingConstants.CENTER);
-        combo.setEditable(false);
-        //metodo para colocar un titulo a la combo
+    private void setLabelFeatures(JLabel label) {
+        label.setForeground(foregroundColor);
+        label.setFont(font);
     }
 
     private void addItems() {
-        GridBagConstraints c = new GridBagConstraints();
-        c.gridx = 0;
-        c.gridy = 0;
-        c.insets = new Insets(0, 100, 0, 170);
-        add(icon, c);
-
-        c = new GridBagConstraints();
+        GridBagConstraints gbc = new GridBagConstraints();
         Insets insets = new Insets(0, 14, 0, 14);
-        c.gridx = 1;
-        c.gridy = 0;
-        c.insets = insets;
-        add(label1);
-
-        c = new GridBagConstraints();
-        c.gridx = 2;
-        c.gridy = 0;
-        c.insets = insets;
-        add(label2, c);
-
-        c = new GridBagConstraints();
-        c.gridx = 3;
-        c.gridy = 0;
-        c.insets = insets;
-        add(label3, c);
-
-        c = new GridBagConstraints();
-        c.gridx = 4;
-        c.gridy = 0;
-        c.insets = insets;
-        add(list1, c);
-
-        c = new GridBagConstraints();
-        c.gridx = 5;
-        c.gridy = 0;
-        c.insets = insets;
-        add(list2, c);
-
-        c = new GridBagConstraints();
-        c.gridx = 6;
-        c.gridy = 0;
-        c.insets = insets;
-        add(list3, c);
-
-        c = new GridBagConstraints();
-        c.gridx = 7;
-        c.gridy = 0;
-        c.insets = insets;
-        add(label3, c);
-
-        c = new GridBagConstraints();
-        c.gridx = 8;
-        c.gridy = 0;
-        c.insets = new Insets(0, 14, 0, 100);
-        add(search, c);
+        addIcon(gbc);
+        gbc.insets = insets;
+        addLabel1(gbc);
+        addLabel2(gbc);
+        addLabel3(gbc);
+        addList1(gbc);
+        addList2(gbc);
+        addList3(gbc);
+        addSearch(gbc);
     }
 
-    public void setListeners(ActionListener listener, MouseListener mouseListener) {
+    private void addIcon(GridBagConstraints gbc) {
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 100, 0, 170);
+        add(icon, gbc);
+    }
+
+    private void addLabel1(GridBagConstraints gbc) {
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        add(label1, gbc);
+
+    }
+
+    private void addLabel2(GridBagConstraints gbc) {
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        add(label2, gbc);
+    }
+
+    private void addList1(GridBagConstraints gbc) {
+        gbc.gridx = 4;
+        gbc.gridy = 0;
+        add(list1, gbc);
+    }
+
+    private void addList2(GridBagConstraints gbc) {
+        gbc.gridx = 5;
+        gbc.gridy = 0;
+        add(list2, gbc);
+
+    }
+
+    private void addList3(GridBagConstraints gbc) {
+        gbc.gridx = 6;
+        gbc.gridy = 0;
+        add(list3, gbc);
+
+    }
+
+    private void addLabel3(GridBagConstraints gbc) {
+        gbc.gridx = 7;
+        gbc.gridy = 0;
+        add(label3, gbc);
+    }
+
+    private void addSearch(GridBagConstraints gbc) {
+        gbc.gridx = 8;
+        gbc.gridy = 0;
+        gbc.insets = new Insets(0, 14, 0, 100);
+        add(search, gbc);
+    }
+
+    public void setListeners(MouseListener mouseListener) {
         label1.addMouseListener(mouseListener);
         label2.addMouseListener(mouseListener);
         label3.addMouseListener(mouseListener);
@@ -138,57 +138,6 @@ public class Header extends JPanel {
         list3.addMouseListener(mouseListener);
         search.addMouseListener(mouseListener);
     }
-//        combo1.addMouseListener(mouseListener);
-//        combo2.addMouseListener(mouseListener);
-//        combo3.addMouseListener(mouseListener);
-//        combo1.addActionListener(listener);
-//        combo2.addActionListener(listener);
-//        combo3.addActionListener(listener);}
-
-    public Color getForegroundColor() {
-        return foregroundColor;
-    }
-
-    public Color getBackgroundColor() {
-        return backgroundColor;
-    }
-
-    @Override
-    public Font getFont() {
-        return font;
-    }
-
-    public JLabel getIcon() {
-        return icon;
-    }
-
-    public JLabel getLabel1() {
-        return label1;
-    }
-
-    public JLabel getLabel2() {
-        return label2;
-    }
-
-    public JLabel getLabel3() {
-        return label3;
-    }
-
-    public JLabel getSearch() {
-        return search;
-    }
-
-//    public JComboBox<String> getCombo1() {
-//        return combo1;
-//    }
-
-//    public JComboBox<String> getCombo2() {
-//        return combo2;
-//    }
-
-//    public JComboBox<String> getCombo3() {
-//        return combo3;
-//    }
 
     public JButton getList1() {
         return list1;
@@ -202,4 +151,8 @@ public class Header extends JPanel {
         return list3;
     }
 
+    @Override
+    public Font getFont() {
+        return font;
+    }
 }

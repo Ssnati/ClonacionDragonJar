@@ -6,31 +6,6 @@ import java.awt.event.MouseListener;
 
 public class InternalPanel extends JPanel {
     private JButton icon;
-
-    public JButton getIcon() {
-        return icon;
-    }
-
-    public void setIcon(JButton icon) {
-        this.icon = icon;
-    }
-
-    public JLabel getTitle() {
-        return title;
-    }
-
-    public void setTitle(JLabel title) {
-        this.title = title;
-    }
-
-    public JLabel getDescription() {
-        return description;
-    }
-
-    public void setDescription(JLabel description) {
-        this.description = description;
-    }
-
     private JLabel title, description;
 
     public InternalPanel(String source) {
