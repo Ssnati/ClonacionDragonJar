@@ -2,9 +2,35 @@ package view.Final;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 
 public class InternalPanel extends JPanel {
     private JButton icon;
+
+    public JButton getIcon() {
+        return icon;
+    }
+
+    public void setIcon(JButton icon) {
+        this.icon = icon;
+    }
+
+    public JLabel getTitle() {
+        return title;
+    }
+
+    public void setTitle(JLabel title) {
+        this.title = title;
+    }
+
+    public JLabel getDescription() {
+        return description;
+    }
+
+    public void setDescription(JLabel description) {
+        this.description = description;
+    }
+
     private JLabel title, description;
 
     public InternalPanel(String source) {
@@ -19,6 +45,15 @@ public class InternalPanel extends JPanel {
         addIcon();
         addTitle();
         addDescription();
+        iconFeature();
+    }
+
+    private void iconFeature() {
+        icon.setBackground(new Color(0, 0, 0, 0));
+        icon.setBorderPainted(false);
+        icon.setFocusable(false);
+        icon.setContentAreaFilled(false);
+        icon.setBorderPainted(false);
     }
 
     private void addTitle() {
@@ -45,8 +80,6 @@ public class InternalPanel extends JPanel {
 
     private void addIcon() {
         GridBagConstraints gbc = new GridBagConstraints();
-        icon.setBorderPainted(false);
-        icon.setBackground(new Color(0, 0, 0, 0));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridheight = 2;
@@ -60,5 +93,9 @@ public class InternalPanel extends JPanel {
 
     public void setDescription(String description) {
         this.description.setText(description);
+    }
+
+    public void setListeners(MouseListener mouseListener) {
+        icon.addMouseListener(mouseListener);
     }
 }

@@ -2,9 +2,26 @@ package view.Final;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 
 public class BackPanel extends JPanel {
     private InternalPanel internalPanelLeft, internalPanelRight;
+
+    public InternalPanel getInternalPanelLeft() {
+        return internalPanelLeft;
+    }
+
+    public void setInternalPanelLeft(InternalPanel internalPanelLeft) {
+        this.internalPanelLeft = internalPanelLeft;
+    }
+
+    public InternalPanel getInternalPanelRight() {
+        return internalPanelRight;
+    }
+
+    public void setInternalPanelRight(InternalPanel internalPanelRight) {
+        this.internalPanelRight = internalPanelRight;
+    }
 
     public BackPanel() {
         setLayout(new GridBagLayout());
@@ -41,5 +58,10 @@ public class BackPanel extends JPanel {
         gbc.ipady = 24;//Tamaño del panel vertical
         add(internalPanelRight, gbc);
 
+    }
+
+    public void setListeners(MouseListener mouseListener) {
+        internalPanelLeft.setListeners(mouseListener);
+        internalPanelRight.setListeners(mouseListener);
     }
 }

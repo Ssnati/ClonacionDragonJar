@@ -2,8 +2,13 @@ package view.InfoPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 
 public class InfoPanel extends JPanel {
+    public void setFooterPanel(FooterPanel footerPanel) {
+        this.footerPanel = footerPanel;
+    }
+
     private FooterPanel footerPanel;
 
     public InfoPanel() {
@@ -23,5 +28,21 @@ public class InfoPanel extends JPanel {
         add(footerPanel, gbc);
     }
 
+
+    public void setListeners(MouseListener listener) {
+        footerPanel.setListeners(listener);
+    }
+
+    public FooterPanel getFooterPanel() {
+        return footerPanel;
+    }
+
+    public void expandButtonFooter() {
+        footerPanel.setColorButton();
+    }
+
+    public void contractButtonFooter() {
+        footerPanel.setDefaultColorButton();
+    }
 
 }

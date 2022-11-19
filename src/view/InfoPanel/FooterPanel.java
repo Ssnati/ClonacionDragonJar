@@ -2,9 +2,47 @@ package view.InfoPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 
 public class FooterPanel extends JPanel {
     private JLabel description, descriptionRed, description2Red, description2;
+
+    public JLabel getDescription() {
+        return description;
+    }
+
+    public void setDescription(JLabel description) {
+        this.description = description;
+    }
+
+    public JLabel getDescriptionRed() {
+        return descriptionRed;
+    }
+
+    public void setDescriptionRed(JLabel descriptionRed) {
+        this.descriptionRed = descriptionRed;
+    }
+
+    public JLabel getDescription2Red() {
+        return description2Red;
+    }
+
+    public void setDescription2Red(JLabel description2Red) {
+        this.description2Red = description2Red;
+    }
+
+    public JLabel getDescription2() {
+        return description2;
+    }
+
+    public void setDescription2(JLabel description2) {
+        this.description2 = description2;
+    }
+
+    public void setButton(JButton button) {
+        this.button = button;
+    }
+
     private JButton button;
 
     public FooterPanel() {
@@ -80,7 +118,7 @@ public class FooterPanel extends JPanel {
         gbc.gridy = 2;
         gbc.gridwidth = 4;
         gbc.ipadx = 30;
-        gbc.ipady = 10;
+        gbc.ipady = 20;
         gbc.anchor = GridBagConstraints.CENTER;
         gbc.insets = new Insets(15, 50, 0, 100);
         button.setFont(new Font("SansSerif", Font.PLAIN, 20));
@@ -91,5 +129,28 @@ public class FooterPanel extends JPanel {
         button.setBorder(BorderFactory.createLineBorder((Color.WHITE), 2, true));
         button.setBackground(Color.BLACK);
         button.setForeground(Color.WHITE);
+        button.setFocusable(false);
+    }
+
+    public void setListeners(MouseListener listener) {
+        button.addMouseListener(listener);
+    }
+
+    public JButton getButton() {
+        return button;
+    }
+
+    public void setColorButton() {
+        Color color = new Color(51, 51, 51);
+        button.setBackground(color);
+        button.setBorder(BorderFactory.createLineBorder(color, 2, true));
+        button.setBorderPainted(false);
+        button.setText(button.getText()+"  >");
+    }
+
+    public void setDefaultColorButton() {
+        performedButton();
+        button.setBorderPainted(true);
+        button.setText(button.getText().substring(0, button.getText().length()-3));
     }
 }

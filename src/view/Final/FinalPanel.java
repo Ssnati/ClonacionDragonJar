@@ -2,8 +2,17 @@ package view.Final;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseListener;
 
 public class FinalPanel extends JPanel {
+    public BackPanel getBackPanel() {
+        return backPanel;
+    }
+
+    public void setBackPanel(BackPanel backPanel) {
+        this.backPanel = backPanel;
+    }
+
     private BackPanel backPanel;
 
     public FinalPanel() {
@@ -27,5 +36,9 @@ public class FinalPanel extends JPanel {
         g.drawImage(icon, 0, 0, dimension.width, dimension.height, null);
         setOpaque(false);
         super.paintComponent(g);
+    }
+
+    public void setListeners(MouseListener mouseListener) {
+        backPanel.setListeners(mouseListener);
     }
 }
