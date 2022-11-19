@@ -22,7 +22,7 @@ public class MainPanel extends JPanel {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         header = new Header();
-        flowPanel = new FlowPanel("data/images/Flow1.jpg");
+        flowPanel = new FlowPanel("sources/images/Flow1.jpg");
         infoPanel = new InfoPanel();
         finalPanel = new FinalPanel();
 
@@ -93,13 +93,8 @@ public class MainPanel extends JPanel {
     }
 
     public void expandCombo(int index) {
-        header.expandCombo(index);
+        flowPanel.expandCombo(index);
     }
-
-    public void contractCombo(int index) {
-        header.contractCombo(index);
-    }
-
     public void changeNextFlowPanel() {
         flowPanel.changeFlowPanel(+1);
     }
@@ -131,4 +126,6 @@ public class MainPanel extends JPanel {
     public void setMidButtonsInvisible() {
         flowPanel.setMidButtonsInvisible();
     }
+
+
 }

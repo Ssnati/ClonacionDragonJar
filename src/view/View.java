@@ -3,7 +3,6 @@ package view;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
-import java.util.List;
 
 public class View extends JFrame {
     private JScrollPane scrollPane;
@@ -18,6 +17,7 @@ public class View extends JFrame {
         mainPanel = new MainPanel(listener, mouseListener);
         scrollPane = new JScrollPane(mainPanel);
         getContentPane().add(scrollPane);
+        scrollPane.getVerticalScrollBar().setUI(new ScrollModel());
         scrollPane.getVerticalScrollBar().setUnitIncrement(8);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -31,10 +31,6 @@ public class View extends JFrame {
 
     public void expandCombo(int index) {
         mainPanel.expandCombo(index);
-    }
-
-    public void collapseCombo(int index) {
-        mainPanel.contractCombo(index);
     }
 
     public void changeNextFlowPanel() {

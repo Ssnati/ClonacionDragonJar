@@ -25,8 +25,8 @@ public class BackPanel extends JPanel {
 
     public BackPanel() {
         setLayout(new GridBagLayout());
-        internalPanelLeft = new InternalPanel("data/images/calendar.png");
-        internalPanelRight = new InternalPanel("data/images/phone.png");
+        internalPanelLeft = new InternalPanel("sources/images/calendar.png");
+        internalPanelRight = new InternalPanel("sources/images/phone.png");
 
         internalPanelLeft.setTitle("AGENDA UNA LLAMADA");
         internalPanelLeft.setDescription("Uno de nuestros asesores se comunicará contigo.");

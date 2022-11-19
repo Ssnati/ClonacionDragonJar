@@ -105,7 +105,7 @@ public class FlowPanel extends JPanel {
         int operation = index + indexCase;
         if (operation == 0) operation = 3;
         else if (operation == 4) operation = 1;
-        image = new ImageIcon("data/images/Flow" + operation + ".jpg").getImage();
+        image = new ImageIcon("sources/images/Flow" + operation + ".jpg").getImage();
         back.setVisible(true);
         next.setVisible(true);
         index = operation;
@@ -120,5 +120,9 @@ public class FlowPanel extends JPanel {
     public void setMidButtonsInvisible() {
         next.setVisible(false);
         back.setVisible(false);
+    }
+
+    public void expandCombo(int index) {
+        midPanel.expandCombo(index);
     }
 }

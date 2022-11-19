@@ -43,6 +43,8 @@ public class Presenter implements ActionListener, MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
+        //print the mouse coordinates
+        System.out.println(e.getX() + " " + e.getY());
         if (e.getSource() instanceof JButton) {
             JButton button = (JButton) e.getSource();
             button.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -66,13 +68,7 @@ public class Presenter implements ActionListener, MouseListener {
             if (e.getSource() instanceof JButton) {
                 JButton button = (JButton) e.getSource();
                 button.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-                if (button.equals(view.getList1())) {
-                    view.collapseCombo(1);
-                } else if (button.equals(view.getList2())) {
-                    view.collapseCombo(2);
-                } else if (button.equals(view.getList3())) {
-                    view.collapseCombo(3);
-                } else if (button.equals(view.getButtonExpansive())) {
+                if (button.equals(view.getButtonExpansive())) {
                     view.collapseButtonFooter();
                 }
             }

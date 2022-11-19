@@ -20,7 +20,9 @@ public class MidPanel extends JPanel {
         combo1 = new JComboBox<>();
         combo1.addItem("Seguridad Informática \nOfensiva");
         comboFeatures(combo1);
-        combo1.setBounds(740, -29, 252, 25);
+        combo1.setBounds(736, -29, 252, 25);
+        int distance = 799-730;
+        System.out.println("Diferencia" + distance);
         add(combo1);
 
 
@@ -31,7 +33,7 @@ public class MidPanel extends JPanel {
 
         combo3 = new JComboBox<>(new String[]{"Blog de Seguridad \nInformática", "Conferencia de \nSeguridad Informática", "Foros de la Comunidad", "Contenido en Video", "Herramientas \nDragonJAR", "Legal"});
         comboFeatures(combo3);
-        combo3.setBounds(967, -29, 252, 25);
+        combo3.setBounds(970, -29, 252, 25);
         add(combo3);
     }
 
@@ -45,7 +47,6 @@ public class MidPanel extends JPanel {
         ((JLabel) combo.getRenderer()).setHorizontalAlignment(SwingConstants.LEFT);
         combo.setEditable(false);
         combo.setSelectedIndex(-1);
-        combo.setVisible(false);
         combo.setRenderer(new DefaultListCellRenderer() {
             @Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
@@ -58,4 +59,22 @@ public class MidPanel extends JPanel {
             }
         });
     }
+
+    public void expandCombo(int index) {
+        switch (index) {
+            case 1:
+                combo1.setVisible(true);
+                combo1.showPopup();
+                break;
+            case 2:
+                combo2.setVisible(true);
+                combo2.showPopup();
+                break;
+            case 3:
+                combo3.setVisible(true);
+                combo3.showPopup();
+                break;
+        }
+    }
+
 }

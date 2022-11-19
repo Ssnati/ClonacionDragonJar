@@ -8,9 +8,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 
 public class Header extends JPanel {
-    private Color foregroundColor = new Color(0, 0, 0, 128);
-    private Color backgroundColor = new Color(255, 255, 255);
-    private Font font = new Font("SansSerif", Font.PLAIN, 14);
+    private final Color foregroundColor = new Color(0, 0, 0, 128);
+    private final Color backgroundColor = new Color(255, 255, 255);
+    private final Font font = new Font("SansSerif", Font.PLAIN, 14);
     private JLabel icon, label1, label2, label3, search;
     private JButton list1, list2, list3;
 
@@ -22,21 +22,18 @@ public class Header extends JPanel {
     }
 
     private void initComponent() {
-        ImageIcon img = new ImageIcon("data/images/Logo.png");
+        ImageIcon img = new ImageIcon("sources/images/Logo.png");
         icon = new JLabel(new ImageIcon(img.getImage().getScaledInstance(250, 50, Image.SCALE_AREA_AVERAGING)));
 
         list1 = new JButton("Formación \u25BC");
-        list1.setForeground(foregroundColor);
-        list1.setFont(font);
+        buttonFeatures(list1);
 
         list2 = new JButton("Productos \u25BC");
-        list2.setForeground(foregroundColor);
-        list2.setFont(font);
+        buttonFeatures(list2);
 
 
         list3 = new JButton("Comunidad \u25BC");
-        list3.setForeground(foregroundColor);
-        list3.setFont(font);
+        buttonFeatures(list3);
 
 
         label1 = new JLabel("Nosotros");
@@ -49,8 +46,17 @@ public class Header extends JPanel {
         label3.setForeground(foregroundColor);
         label3.setFont(font);
 
-        ImageIcon loupe = new ImageIcon("data/images/loupe.png");
+        ImageIcon loupe = new ImageIcon("sources/images/loupe.png");
         search = new JLabel(new ImageIcon(loupe.getImage().getScaledInstance(25, 25, Image.SCALE_AREA_AVERAGING)));
+    }
+
+    private void buttonFeatures(JButton list) {
+        list.setForeground(foregroundColor);
+        list.setBackground(new Color(0, 0, 0, 0));
+        list.setBorderPainted(false);
+        list.setFocusPainted(false);
+        list.setFont(font);
+        list.setMargin(new Insets(0, 0, 0, 0));
     }
 
     private void comboFeatures(JComboBox<String> combo) {
@@ -183,34 +189,6 @@ public class Header extends JPanel {
 //    public JComboBox<String> getCombo3() {
 //        return combo3;
 //    }
-
-    public void expandCombo(int index) {
-        switch (index) {
-            case 1:
-//                combo1.showPopup();
-                break;
-            case 2:
-//                combo2.showPopup();
-                break;
-            case 3:
-//                combo3.showPopup();
-                break;
-        }
-    }
-
-    public void contractCombo(int index) {
-        switch (index) {
-            case 1:
-//                combo1.hidePopup();
-                break;
-            case 2:
-//                combo2.hidePopup();
-                break;
-            case 3:
-//                combo3.hidePopup();
-                break;
-        }
-    }
 
     public JButton getList1() {
         return list1;

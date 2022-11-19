@@ -32,7 +32,7 @@ public class FinalPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         Dimension dimension = this.getSize();
-        Image icon = new ImageIcon("data/images/background.jpg").getImage();
+        Image icon = new ImageIcon("sources/images/background.jpg").getImage();
         g.drawImage(icon, 0, 0, dimension.width, dimension.height, null);
         setOpaque(false);
         super.paintComponent(g);
